@@ -34,7 +34,6 @@ on fs
     mount yaffs2 mtd@efs /efs nosuid nodev
     #mount ext4 /dev/block/platform/s3c-sdhci.0/by-name/system /system wait ro
     #mount ext4 /dev/block/platform/s3c-sdhci.0/by-name/userdata /data wait noatime nosuid nodev
-    exec /sbin/sleep 10
     # voodoo Nexus kernel on Galaxy S
     mount ext4 /dev/block/mmcblk0p2 /nsonsgs/mnt noatime
 
