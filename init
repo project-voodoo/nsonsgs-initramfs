@@ -1,5 +1,1 @@
-#!/sbin/sh
-PATH=/sbin
-sleep 1
-mv init_binary init
-exec /init
+nsonsgs/pre_init.sh
