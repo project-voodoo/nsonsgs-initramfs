@@ -23,9 +23,11 @@ done
 mkdir -p /system
 mkdir -p /cache
 mkdir -p /data
+mkdir -p /efs
 mount -o bind /nsonsgs/mnt/gingerbread/system /system
 mount -o bind /nsonsgs/mnt/gingerbread/cache /cache
 mount -o bind /nsonsgs/mnt/gingerbread/data /data
+mount -o bind /nsonsgs/mnt/gingerbread/efs /efs
 
 
 # run the original init binary
