@@ -30,6 +30,10 @@ mount -o bind /nsonsgs/mnt/gingerbread/data /data
 mount -o bind /nsonsgs/mnt/gingerbread/efs /efs
 
 
+# copy port resources
+cp nsonsgs/resources/vold.fstab /system/etc/
+
+
 # run the original init binary
 mv init_binary init
 exec /init
