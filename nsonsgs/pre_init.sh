@@ -11,6 +11,10 @@ mkdir -p /dev/block/
 mknod /dev/block/mmcblk0p2 b 179 2
 
 
+# make sure the empty mount directory is present
+mkdir /nsonsgs/mnt
+
+
 # mount loop: wait for the internal sdcard device to appear
 while true; do
 	mount -t ext4 -o noatime,noauto_da_alloc,barrier=1,data=ordered \
