@@ -16,10 +16,12 @@ mkdir /nsonsgs/mnt
 
 
 # mount loop: wait for the internal sdcard device to appear
+mount_count=0
 while true; do
 	mount -t ext4 -o noatime,noauto_da_alloc,barrier=1,data=ordered \
 		/dev/block/mmcblk0p2 /nsonsgs/mnt && break
 	sleep 0.1
+	test $mount_count -lt 20 || break
 done
 
 
