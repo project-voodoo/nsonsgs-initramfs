@@ -8,6 +8,7 @@ PATH=/sbin
 
 # create required device
 mkdir -p /dev/block/
+mknod /dev/block/mmcblk0p1 b 179 1
 mknod /dev/block/mmcblk0p2 b 179 2
 
 
