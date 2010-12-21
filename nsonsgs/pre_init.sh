@@ -47,7 +47,7 @@ mount -o bind /nsonsgs/mnt/gingerbread/efs /efs
 
 
 # copy port resources
-cp nsonsgs/resources/vold.fstab"$model_prefix" /system/etc/
+cp nsonsgs/resources/vold.fstab"$model_prefix" /system/etc/vold.fstab
 
 
 umount /sys
