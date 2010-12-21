@@ -11,15 +11,25 @@ mkdir -p /dev/block/
 mknod /dev/block/mmcblk0p2 b 179 2
 
 
+
 # make sure the empty mount directory is present
 mkdir /nsonsgs/mnt
 
+
+
+# detect the model
+mount -t sysfs sys /sys
+if test "`cat /sys/block/mmcblk0/size`" = 3907584; then
+	data_partition='/dev/block/mmcblk0p1'	# we are on fascinate/mesmerize/showcase
+else
+	data_partition='/dev/block/mmcblk0p2'	# every other Galaxy S
+fi
 
 # mount loop: wait for the internal sdcard device to appear
 mount_count=0
 while true; do
 	mount -t ext4 -o noatime,noauto_da_alloc,barrier=1,data=ordered \
-		/dev/block/mmcblk0p2 /nsonsgs/mnt && break
+		$data_partition /nsonsgs/mnt && break
 	sleep 0.1
 	test $mount_count -lt 20 || break
 done
@@ -40,6 +50,7 @@ mount -o bind /nsonsgs/mnt/gingerbread/efs /efs
 cp nsonsgs/resources/vold.fstab /system/etc/
 
 
+umount /sys
 # run the original init binary
 mv init_binary init
 exec /init
