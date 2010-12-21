@@ -12,16 +12,15 @@ mknod /dev/block/mmcblk0p1 b 179 1
 mknod /dev/block/mmcblk0p2 b 179 2
 
 
-
 # make sure the empty mount directory is present
 mkdir /nsonsgs/mnt
-
 
 
 # detect the model
 mount -t sysfs sys /sys
 if test "`cat /sys/block/mmcblk0/size`" = 3907584; then
 	data_partition='/dev/block/mmcblk0p1'	# we are on fascinate/mesmerize/showcase
+	model_prefix='-fascinate'
 else
 	data_partition='/dev/block/mmcblk0p2'	# every other Galaxy S
 fi
@@ -48,7 +47,7 @@ mount -o bind /nsonsgs/mnt/gingerbread/efs /efs
 
 
 # copy port resources
-cp nsonsgs/resources/vold.fstab /system/etc/
+cp nsonsgs/resources/vold.fstab"$model_prefix" /system/etc/
 
 
 umount /sys
