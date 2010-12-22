@@ -31,6 +31,7 @@ while true; do
 	mount -t ext4 -o noatime,noauto_da_alloc,barrier=1,data=ordered \
 		$data_partition /nsonsgs/mnt && break
 	sleep 0.1
+	mount_count=$(( $mount_count + 1 ))
 	test $mount_count -lt 20 || break
 done
 
