@@ -37,9 +37,9 @@ done
 
 # bind-mount resources to fool Android system
 mkdir -p /system
-mkdir -p /cache
-mkdir -p /data
-mkdir -p /efs
+mkdir -p /cache /nsonsgs/mnt/gingerbread/cache
+mkdir -p /data /nsonsgs/mnt/gingerbread/data
+mkdir -p /efs /nsonsgs/mnt/gingerbread/data
 mount -o bind /nsonsgs/mnt/gingerbread/system /system
 mount -o bind /nsonsgs/mnt/gingerbread/cache /cache
 mount -o bind /nsonsgs/mnt/gingerbread/data /data
