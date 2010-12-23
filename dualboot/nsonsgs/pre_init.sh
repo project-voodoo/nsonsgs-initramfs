@@ -40,7 +40,7 @@ done
 mkdir -p /system
 mkdir -p /cache /nsonsgs/mnt/gingerbread/cache
 mkdir -p /data /nsonsgs/mnt/gingerbread/data
-mkdir -p /efs /nsonsgs/mnt/gingerbread/data
+mkdir -p /efs /nsonsgs/mnt/gingerbread/efs
 mount -o bind /nsonsgs/mnt/gingerbread/system /system
 mount -o bind /nsonsgs/mnt/gingerbread/cache /cache
 mount -o bind /nsonsgs/mnt/gingerbread/data /data
