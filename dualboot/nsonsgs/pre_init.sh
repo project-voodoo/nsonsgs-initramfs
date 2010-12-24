@@ -50,6 +50,9 @@ mount -o bind /nsonsgs/mnt/gingerbread/efs /efs
 # copy port resources
 cp nsonsgs/resources/vold.fstab"$model_prefix" /system/etc/vold.fstab
 
+# make sure the su binaries have the proper permissions
+chmod 06755 /nsonsgs/resources/su*
+cp -a /nsonsgs/resources/su-2.3.6.1-ef /system/bin/su
 
 umount /sys
 # run the original init binary
